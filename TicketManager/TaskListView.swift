@@ -9,8 +9,20 @@
 import SwiftUI
 
 struct TaskListView: View {
+
+    @State var taskList = "Themes.listModel"
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("Welcome to Your task Manager")
+            /*List(taskList.items, action: taskList.selectItem){
+                item in
+                Image(item.image)
+                VStack(alignment: .leading){
+                    Text(item.title)
+                    Text(item.subtitle).color(.gray)
+                }
+            }*/
+        }
     }
 }
 
