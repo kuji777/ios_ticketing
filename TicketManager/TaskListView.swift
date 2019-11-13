@@ -77,7 +77,7 @@ struct TaskListView: View {
                         Text(item.subtitle).color(.gray)
                     }
                 }*/
-        }
+        }.navigationBarTitle("List")
     }
     
     var selectedTasks: Binding<[Task]> {

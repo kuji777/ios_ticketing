@@ -70,6 +70,7 @@ struct TaskEditView: View {
                     }
                 }
             }.padding()
+            .navigationBarTitle("Edit")
         }
 }
 
