@@ -15,12 +15,18 @@ struct LoginView: View {
     @State var password: String = ""
     
     var body: some View {
-        
+        NavigationView{
         VStack{
             Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
             TextField("Login", text: $login)
             TextField("Password", text: $password)
-            Button(action: {
+            NavigationLink(destination: TaskListView()) {
+                Text("Login").foregroundColor(.white)
+                                   .padding(10)
+                                   .background(Color.blue)
+                                   .cornerRadius(10)
+            }
+            /*Button(action: {
                 //do none
             }) {
                 Text("Login")
@@ -28,7 +34,8 @@ struct LoginView: View {
                     .padding(10)
                     .background(Color.blue)
                     .cornerRadius(10)
-            }
+            }*/
+        }
         }
     }
 }
