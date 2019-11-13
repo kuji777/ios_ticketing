@@ -22,26 +22,50 @@ struct TaskDetailsView: View {
     let image = Image("Task")
     
     var body: some View {
+            
         
-        VStack(alignment: .leading) {
-            
-            image
-            .resizable()
-            .scaledToFill()
-            .clipped()
-            
-            Text(task.name)
-            Text(task.taskId)
-            Text(task.description)
-            Text(task.location)
-            Text(task.status)
+        
+            VStack() {
+                HStack(){
+                    Text("Task Details").offset(.init(width: 0, height: 0))
+                        .font(.title)
+                    image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 50, height: 50, alignment: .topLeading)
+                    .clipped()
+                    .listRowInsets(EdgeInsets())
+                    /*Button(action: {
+                            //change status value
+                        }) {
+                            Text(task.status)
+                                .foregroundColor(.white)
+                                .padding(10)
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                        }
+                    }*/
+                }
+                
+                VStack(alignment: .leading) {
+                    
+                    Text("Task name :")
+                    .font(.headline)
+                
+                    Text("Task description :")
+                    .font(.headline)
+                    
+                    Text("Task location :")
+                    .font(.headline)
+                    
+                }
+            }
+                      
+    
         }
         
-        
     }
-    
         
-}
 
 
 /*struct Task {
