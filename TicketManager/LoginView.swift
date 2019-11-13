@@ -18,8 +18,8 @@ struct LoginView: View {
         NavigationView{
         VStack{
             Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
-            TextField("Login", text: $login)
-            TextField("Password", text: $password)
+            TextField("Login", text: $login).padding(.horizontal,75)
+            TextField("Password", text: $password).padding(.horizontal,75)
             NavigationLink(destination: TaskListView()) {
                 Text("Login").foregroundColor(.white)
                                    .padding(10)
