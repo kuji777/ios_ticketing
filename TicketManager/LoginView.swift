@@ -17,7 +17,7 @@ struct LoginView: View {
     var body: some View {
         NavigationView{
         VStack{
-            Text("Task Manager").size
+            Text("Task Manager")
             TextField("Login", text: $login).padding(.horizontal,75)
             TextField("Password", text: $password).padding(.horizontal,75)
             NavigationLink(destination: TaskListView()) {
