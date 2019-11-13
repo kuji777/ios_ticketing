@@ -58,9 +58,17 @@ struct TaskEditView: View {
                         )
                 }
                 
-    //            HStack(){
-    //                Button
-    //            }
+                HStack(){
+                    Button(action: {
+                        //do none
+                    }) {
+                        Text("Submit")
+                            .foregroundColor(.white)
+                            .padding(10)
+                            .background(Color.blue)
+                            .cornerRadius(10)
+                    }
+                }
             }.padding()
         }
 }

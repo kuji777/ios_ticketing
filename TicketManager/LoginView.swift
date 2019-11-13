@@ -25,6 +25,12 @@ struct LoginView: View {
                                    .padding(10)
                                    .background(Color.blue)
                                    .cornerRadius(10)
+            }.padding()
+            NavigationLink(destination: TaskEditView()) {
+                Text("Add Task").foregroundColor(.white)
+                                   .padding(10)
+                                   .background(Color.blue)
+                                   .cornerRadius(10)
             }
             /*Button(action: {
                 //do none
