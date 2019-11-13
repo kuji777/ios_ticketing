@@ -19,37 +19,40 @@ struct Task {
 
 struct TaskListView: View {
 
-    @State var taskList = "Themes.listModel"
+    @State var taskList = [
+        Task(  taskId: "1", name: "charge fail", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0"),
+    Task(  taskId: "2", name: "change directory failed", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0"),
+    Task(  taskId: "3", name: "Logn story ", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0"),
+    Task(  taskId: "4", name: "charge fail", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0")]
     @State var selection: Int? = nil
     
     var body: some View {
             VStack{
                 HStack{
-                Text("Welcome to Your task Manager")
-                
-                NavigationLink(destination: TaskEditView(), tag: 1, selection: $selection) {
-                    Button(action: {
-                        print("login tapped")
-                        self.selection = 1
-                    }) {
-                        HStack{
-                            Image("baseline_add_circle_black_48dp").resizable().frame(width:25.0, height: 25.0).colorMultiply(Color.blue)
-                            Text("Add task").foregroundColor(Color.blue)
+                    Text("Welcome to Your task Manager")
+                    
+                    NavigationLink(destination: TaskEditView(), tag: 1, selection: $selection) {
+                        Button(action: {
+                            print("login tapped")
+                            self.selection = 1
+                        }) {
+                            HStack{
+                                Image("baseline_add_circle_black_48dp").resizable().frame(width:25.0, height: 25.0).colorMultiply(Color.blue)
+                                Text("Add task").foregroundColor(Color.blue)
+                            }
+                            .background(Color.white)
                         }
-                        .background(Color.white)
+                        .foregroundColor(.white)
+                        .padding(10)
+                        .background(Color.blue)
+                        .cornerRadius(10)
                     }
-                    .accentColor(Color.black)
-                    .padding()
-                    .background(Color(UIColor.darkGray))
-                    .cornerRadius(4.0)
-                    .padding(Edge.Set.vertical, 20)
                 }
-                    List(taskList, id: \.name){ task in
-                        HStack {
-                            Text(task.name)
-                            Text(task.status).foregroundColor(Color.white).background(Color.green)
-                        }
-                
+
+                List(taskList, id: \.name){ task in
+                    HStack {
+                        Text(task.name)
+                        Text(task.status).foregroundColor(Color.white).background(Color.green)
                 }
                 
                 
