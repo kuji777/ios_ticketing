@@ -70,23 +70,27 @@ struct TaskListView: View {
                 if SelectedTabIndex == 0 {
                      List(openTaskList, id: \.name ){ task in
                         NavigationLink(destination: TaskDetailsView(taskId: task.taskId)){
-                                       HStack {
-                                           Text(task.name)
-                                           Text(task.status).foregroundColor(Color.white).background(Color.green)
-                                   }
+                            HStack {
+                                Text(task.name)
+                                Text(task.status).foregroundColor(Color.white).background(Color.green)
+                            }
                         }
+                    }
                 } else if SelectedTabIndex == 1 {
                     List(pendingTaskList, id: \.name ){ task in
-                                                          HStack {
-                                                              Text(task.name)
-                                                              Text(task.status).foregroundColor(Color.white).background(Color.green)
-                                                      }
+                        HStack {
+                            Text(task.name)
+                            Text(task.status).foregroundColor(Color.white).background(Color.green)
+                        }
+                    }
                 } else {
                      List(closedTaskList, id: \.name ){ task in
-                                                          HStack {
-                                                              Text(task.name)
-                                                              Text(task.status).foregroundColor(Color.white).background(Color.green)
-                                                      }
+                        HStack {
+                            Text(task.name)
+                            Text(task.status).foregroundColor(Color.white).background(Color.green)
+                            
+                        }
+                    }
                 }
                 
                
@@ -103,7 +107,7 @@ struct TaskListView: View {
             }
         }
     }
-}
+
 
 struct TaskListView_Previews: PreviewProvider {
     static var previews: some View {
