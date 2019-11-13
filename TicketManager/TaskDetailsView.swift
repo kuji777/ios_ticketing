@@ -42,6 +42,11 @@ struct TaskDetailsView: View {
     
         
 }
+struct TaskDetailsView_Previews: PreviewProvider {
+    static var previews: some View {
+        TaskDetailsView()
+    }
+}
 
 
 /*struct Task {
