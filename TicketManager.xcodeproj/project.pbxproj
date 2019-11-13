@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC602AA5237C5745007E7E01 /* SpecificTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC602AA4237C5745007E7E01 /* SpecificTaskView.swift */; };
 		EC7AC1C6237C407A0063D7CB /* TaskDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7AC1C5237C407A0063D7CB /* TaskDetailsView.swift */; };
 		EC8C643023604B830006420C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C642F23604B830006420C /* AppDelegate.swift */; };
 		EC8C643223604B830006420C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C643123604B830006420C /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC602AA4237C5745007E7E01 /* SpecificTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificTaskView.swift; sourceTree = "<group>"; };
 		EC7AC1C5237C407A0063D7CB /* TaskDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsView.swift; sourceTree = "<group>"; };
 		EC8C642C23604B830006420C /* TicketManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8C642F23604B830006420C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				EC8C643D23604B900006420C /* Info.plist */,
 				EC8C643723604B900006420C /* Preview Content */,
 				EC8C6443236057D80006420C /* TaskListView.swift */,
+				EC602AA4237C5745007E7E01 /* SpecificTaskView.swift */,
 				ECE6658F237C03BE00C1F697 /* TaskEditView.swift */,
 				EC8C6446236081910006420C /* LoginView.swift */,
 			);
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC602AA5237C5745007E7E01 /* SpecificTaskView.swift in Sources */,
 				EC8C643023604B830006420C /* AppDelegate.swift in Sources */,
 				EC8C643223604B830006420C /* SceneDelegate.swift in Sources */,
 				EC7AC1C6237C407A0063D7CB /* TaskDetailsView.swift in Sources */,

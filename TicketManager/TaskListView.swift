@@ -20,30 +20,30 @@ struct Task {
 struct TaskListView: View {
 
     @State var openTaskList = [
-        Task(  taskId: "1", name: "charge fail", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0"),
+        Task(  taskId: "1", name: "charge fail", description: "the charge failed", location: "open office", status: "open", selectedUserType: "0"),
     Task(  taskId: "2", name: "change directory failed", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0"),
-    Task(  taskId: "3", name: "Logn story ", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0"),
-    Task(  taskId: "4", name: "charge fail", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0")]
+    Task(  taskId: "3", name: "Logn story ", description: "the charge failed", location: "open office", status: "open", selectedUserType: "0"),
+    Task(  taskId: "4", name: "charge fail", description: "the charge failed", location: "open office", status: "open", selectedUserType: "0")]
     
     @State var pendingTaskList = [
-    Task(  taskId: "3", name: "Logn story ", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0"),
-    Task(  taskId: "4", name: "charge fail", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0")]
+    Task(  taskId: "5", name: "Logn story ", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0"),
+    Task(  taskId: "6", name: "charge fail", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0")]
     
     @State var closedTaskList = [
-    Task(  taskId: "3", name: "Logn story ", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0"),
-    Task(  taskId: "4", name: "charge fail", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0")]
+    Task(  taskId: "7", name: "Logn story ", description: "the charge failed", location: "open office", status: "closed", selectedUserType: "0"),
+    Task(  taskId: "8", name: "charge fail", description: "the charge failed", location: "open office", status: "closed", selectedUserType: "0")]
     
     @State var selection: Int? = nil
     @State private var SelectedTabIndex = 0
     
     var body: some View {
             VStack{
+                
                 HStack{
                     Text("Welcome to Your task Manager")
                     
                     NavigationLink(destination: TaskEditView(), tag: 1, selection: $selection) {
                         Button(action: {
-                            print("login tapped")
                             self.selection = 1
                         }) {
                             HStack{
@@ -67,35 +67,8 @@ struct TaskListView: View {
                     }
                     .pickerStyle(SegmentedPickerStyle())
                 }
-                if SelectedTabIndex == 0 {
-                     List(openTaskList, id: \.name ){ task in
-                        NavigationLink(destination: TaskDetailsView(taskId: task.taskId)){
-                            HStack {
-                                Text(task.name)
-                                Text(task.status).foregroundColor(Color.white).background(Color.green)
-                            }
-                        }
-                    }
-                } else if SelectedTabIndex == 1 {
-                    List(pendingTaskList, id: \.name ){ task in
-                        HStack {
-                            Text(task.name)
-                            Text(task.status).foregroundColor(Color.white).background(Color.green)
-                        }
-                    }
-                } else {
-                     List(closedTaskList, id: \.name ){ task in
-                        HStack {
-                            Text(task.name)
-                            Text(task.status).foregroundColor(Color.white).background(Color.green)
-                            
-                        }
-                    }
-                }
-                
-               
-                
-                
+                SpecificTaskView(tasks: selectedTasks)
+    
                 /*List(taskList.items, action: taskList.selectItem){
                     item in
                     Image(item.image)
@@ -104,9 +77,22 @@ struct TaskListView: View {
                         Text(item.subtitle).color(.gray)
                     }
                 }*/
-            }
         }
     }
+    
+    var selectedTasks: Binding<[Task]> {
+        if SelectedTabIndex == 0 {
+            return $openTaskList
+        } else if  SelectedTabIndex == 1 {
+            return $pendingTaskList
+        } else {
+            return $closedTaskList
+        }
+    }
+
+}
+
+
 
 
 struct TaskListView_Previews: PreviewProvider {
