@@ -12,7 +12,11 @@ struct TaskDetailsView: View {
     
     @State var task: Task
     @State private var selectedStatus = 0
-    
+    @State private var datas: String = ""
+           private let apiKey: String = "afb9c52b2dfa85e1a3acbeda56425a6d"
+       
+           let session = URLSession.shared
+
     var status = ["NEW", "ON GOING", "PENDING", "DONE"]
     let image = Image("Task")
     
@@ -33,21 +37,21 @@ struct TaskDetailsView: View {
                 
                 */
                 
-                Group
-                switch (task.status){
-                case ("ON GOING"):
-                    selectedStatus = 1
-                case ("PENDING"):
-                    selectedStatus = 2
-                case ("DONE"):
-                    selectedStatus = 3
-                default:
-                    selectedStatus = 0
-                }
-            
+                            
                 VStack(alignment: .leading) {
                     
-                                            
+/*
+                   switch (task.status){
+                   case ("ON GOING"):
+                       selectedStatus = 1
+                   case ("PENDING"):
+                       selectedStatus = 2
+                   case ("DONE"):
+                       selectedStatus = 3
+                   default:
+                       selectedStatus = 0
+                   }*/
+                    
                     Picker(selection: $selectedStatus, label: Text("Status").font(.headline)) {
                        ForEach(0 ..< status.count) {
                           Text(self.status[$0])
@@ -121,9 +125,8 @@ struct TaskDetailsView: View {
                             }
                         }
                         
-                        //Text(datas)
+                        Text(datas)
                     }.padding()
-                    .navigationBarTitle("Edit")
                 }
             }
-}
+
