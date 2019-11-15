@@ -91,7 +91,7 @@ struct TaskEditView: View {
                             if let httpResponse = response as? HTTPURLResponse {
                                 print(httpResponse.statusCode)
 //                                if httpResponse.statusCode == 200{
-                                    let newTask = Task(taskId: "", name: self.name, description: self.description, location: self.location, status: "pending", selectedUserType: self.types[self.selectedType])
+                                    let newTask = Task(taskId: "", name: self.name, description: self.description, location: self.location, status: "opened", selectedUserType: self.types[self.selectedType])
                                 
                                     self.datas = "New task name: " + newTask.name + "; description: " + newTask.description + "; location: " + newTask.location + "; type: " + newTask.selectedUserType + "; status: " + newTask.status
 //                                }
