@@ -14,7 +14,7 @@ struct SpecificTaskView: View {
     
     var body: some View {
         List(tasks, id: \.name ){ task in
-            NavigationLink(destination: TaskDetailsView()){
+            NavigationLink(destination: TaskDetailsView(task: task)){
             HStack {
                 Text(task.name)
                 Text(task.status).foregroundColor(Color.white).background(Color.green)

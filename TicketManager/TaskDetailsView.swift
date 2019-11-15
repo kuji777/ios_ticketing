@@ -10,20 +10,12 @@ import SwiftUI
 
 struct TaskDetailsView: View {
     
-    @State private var name: String = ""
-    @State private var description: String = ""
-    @State private var location: String = ""
-    @State private var status: String = ""
-    @State private var selectedUserType = 0
+    @State var task: Task
     
-    @State var task: Task = Task(taskId: "taskId", name : "NAME", description : "DESCRIPTION", location : "LOCATION", status : "STATUS", selectedUserType : "CLIENT")
-
     var types = ["Material", "Software", "Other"]
     let image = Image("Task")
     
     var body: some View {
-            
-        
         
             VStack() {
                 HStack(){
@@ -49,13 +41,13 @@ struct TaskDetailsView: View {
                 
                 VStack(alignment: .leading) {
                     
-                    Text("Task name :")
+                    Text("Task name : \(task.name)")
                     .font(.headline)
                 
-                    Text("Task description :")
+                    Text("Task description : \(task.description)")
                     .font(.headline)
                     
-                    Text("Task location :")
+                    Text("Task location : \(task.location)")
                     .font(.headline)
                     
                 }
@@ -66,11 +58,3 @@ struct TaskDetailsView: View {
         
     }
 
-/*struct Task {
-    var taskId: String = ""
-    var name: String = ""
-    var description: String = ""
-    var location: String = ""
-    var status: String = ""
-    var selectedUserType = 0
-}*/
