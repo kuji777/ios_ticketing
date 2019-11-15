@@ -45,7 +45,7 @@ struct TaskDetailsView: View {
                        ForEach(0 ..< status.count) {
                         Text(self.status[$0]).tag(self.status[$0])
                        }
-                    }
+                    }.pickerStyle(SegmentedPickerStyle())
                     
                     Text("TASK NAME : \(task.name)")
                     .font(.headline)
