@@ -11,11 +11,15 @@ import SwiftUI
 struct TaskDetailsView: View {
     
     @State var task: Task
+    @State private var selectedStatus = 0
     
-    var types = ["Material", "Software", "Other"]
+    var status = ["NEW", "ON GOING", "PENDING", "DONE"]
     let image = Image("Task")
     
+    
+    
     var body: some View {
+           
         
             VStack() {
                 Text("Task Details").offset(.init(width: 0, height: -180))
@@ -27,43 +31,99 @@ struct TaskDetailsView: View {
                 .clipped()
                 .listRowInsets(EdgeInsets())
                 
-                    
-                    Button(action: {
-                            //change status value
-                        }) {
-                            Text(task.status)
-                                .foregroundColor(.white)
-                                .padding(10)
-                                .background(Color.blue)
-                                .cornerRadius(10)
-                        }
-                    }*/
-                }
+                */
                 
+                Group
+                switch (task.status){
+                case ("ON GOING"):
+                    selectedStatus = 1
+                case ("PENDING"):
+                    selectedStatus = 2
+                case ("DONE"):
+                    selectedStatus = 3
+                default:
+                    selectedStatus = 0
+                }
+            
                 VStack(alignment: .leading) {
                     
-                    Text("Task name : \(task.name)")
-                    .font(.headline)
-                
-                    Text("Task description : \(task.description)")
-                    .font(.headline)
+                                            
+                    Picker(selection: $selectedStatus, label: Text("Status").font(.headline)) {
+                       ForEach(0 ..< status.count) {
+                          Text(self.status[$0])
+                       }
+                    }
                     
-                    Text("Task location : \(task.location)")
+                    Text("TASK NAME : \(task.name)")
                     .font(.headline)
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.gray, lineWidth: 1)
+                    )
+                
+                    Text("TASK DESCRIPTION : \(task.description)")
+                    .font(.headline)
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.gray, lineWidth: 1)
+                    )
+                    
+                    Text("TASK LOCATION : \(task.location)")
+                    .font(.headline)
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.gray, lineWidth: 1)
+                    )
                     
                 }
-            }
-                      
-    
-        }
-        
-    }
+                
+                HStack(){
+                            Button(action: {
+                                //Send HTTP request for creation of Tasks
+                                self.datas = self.status[self.selectedStatus]
+                                
+                                var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/76341?api_key=" + self.apiKey)!)
+                                
+                                request.httpMethod = "POST"
+                                
+                                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                                
+                                let json = [
+                                    "status": self.status,
+                                    ]
+                                
+                                let jsonData = try! JSONSerialization.data(withJSONObject: json, options: [])
+                                
+                                let task = self.session.uploadTask(with: request, from: jsonData) { data, response, error in
+                                    // Do something
+                                    if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                                        print(dataString)
+                                    }
+                                    
+                                    if let httpResponse = response as? HTTPURLResponse {
+                                        print(httpResponse.statusCode)
+                                    }
+                                }
+                                
+                                
 
-/*struct Task {
-    var taskId: String = ""
-    var name: String = ""
-    var description: String = ""
-    var location: String = ""
-    var status: String = ""
-    var selectedUserType = 0
-}*/
+                                task.resume()
+                                
+                            }) {
+                                Text("Submit")
+                                    .foregroundColor(.white)
+                                    .padding(10)
+                                    .background(Color.blue)
+                                    .cornerRadius(10)
+                            }
+                        }
+                        
+                        //Text(datas)
+                    }.padding()
+                    .navigationBarTitle("Edit")
+                }
+            }
+}
