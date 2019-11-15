@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC601D66237EDCFC00289F45 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC601D65237EDCFC00289F45 /* Task.swift */; };
 		EC602AA5237C5745007E7E01 /* SpecificTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC602AA4237C5745007E7E01 /* SpecificTaskView.swift */; };
 		EC7AC1C6237C407A0063D7CB /* TaskDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7AC1C5237C407A0063D7CB /* TaskDetailsView.swift */; };
 		EC8C643023604B830006420C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C642F23604B830006420C /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC601D65237EDCFC00289F45 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		EC602AA4237C5745007E7E01 /* SpecificTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificTaskView.swift; sourceTree = "<group>"; };
 		EC7AC1C5237C407A0063D7CB /* TaskDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailsView.swift; sourceTree = "<group>"; };
 		EC8C642C23604B830006420C /* TicketManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicketManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,7 +73,6 @@
 				EC8C643A23604B900006420C /* LaunchScreen.storyboard */,
 				EC8C643D23604B900006420C /* Info.plist */,
 				EC8C643723604B900006420C /* Preview Content */,
-				EC8C6443236057D80006420C /* TaskListView.swift */,
 				EC602AA4237C5745007E7E01 /* SpecificTaskView.swift */,
 				ECE6658F237C03BE00C1F697 /* TaskEditView.swift */,
 				EC8C6443236057D80006420C /* TaskListView.swift */,
@@ -92,6 +93,7 @@
 		EC8C644523607EEA0006420C /* DataObjects */ = {
 			isa = PBXGroup;
 			children = (
+				EC601D65237EDCFC00289F45 /* Task.swift */,
 			);
 			path = DataObjects;
 			sourceTree = "<group>";
@@ -167,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC601D66237EDCFC00289F45 /* Task.swift in Sources */,
 				EC602AA5237C5745007E7E01 /* SpecificTaskView.swift in Sources */,
 				EC8C643023604B830006420C /* AppDelegate.swift in Sources */,
 				EC8C643223604B830006420C /* SceneDelegate.swift in Sources */,

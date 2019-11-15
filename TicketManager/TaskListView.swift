@@ -8,15 +8,6 @@
 
 import SwiftUI
 
-struct Task {
-    let taskId: String
-    let name: String
-    let description: String
-    let location: String
-    let status: String
-    let selectedUserType: String
-}
-
 struct TaskListView: View {
 
     @State var openTaskList = [
