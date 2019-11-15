@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct TaskEditView: View {
+    
+        @EnvironmentObject var tasklists : TaskLists
         @State private var name: String = ""
         @State private var description: String = ""
         @State private var location: String = ""

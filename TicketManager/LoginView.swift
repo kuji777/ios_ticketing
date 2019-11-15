@@ -14,28 +14,48 @@ struct LoginView: View {
     @State var login: String = ""
     @State var password: String = ""
     
+    @State var loggedIn: Bool = false
+    
     var body: some View {
-        NavigationView{
-        VStack{
-            Text("Task Manager")
-            TextField("Login", text: $login).padding(.horizontal,75)
-            TextField("Password", text: $password).padding(.horizontal,75)
-            NavigationLink(destination: TaskListView()) {
-                Text("Login").foregroundColor(.white)
-                                   .padding(10)
-                                   .background(Color.blue)
-                                   .cornerRadius(10)
-            }.padding()
-            /*Button(action: {
-                //do none
-            }) {
-                Text("Login")
-                    .foregroundColor(.white)
-                    .padding(10)
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }*/
-        }
+        if loggedIn {
+            return AnyView ( TaskListView() )
+        } else {
+            return AnyView (
+                VStack{
+                    Text("Task Manager")
+                    TextField("Login", text: $login).padding(.horizontal,75)
+                    TextField("Password", text: $password).padding(.horizontal,75)
+                    /*if login.isEmpty {
+                        NavigationLink(destination: TaskEditView()) {
+                            Text("Login").foregroundColor(.white)
+                                .padding(10)
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                        }.padding()
+                    } else {
+                        NavigationLink(destination: TaskEditView()) {
+                            Text("Login").foregroundColor(.white)
+                                .padding(10)
+                                .background(Color.blue)
+                                .cornerRadius(10)
+                        }.padding()
+                    }*/
+                    
+                    Button(action: {
+                        if(self.login == "root" && self.password == "pass" ){
+                            self.loggedIn = true
+                        } else {
+                            
+                        }
+                     }) {
+                     Text("Login")
+                     .foregroundColor(.white)
+                     .padding(10)
+                     .background(Color.blue)
+                     .cornerRadius(10)
+                     }
+            }
+            )
         }
     }
 }
