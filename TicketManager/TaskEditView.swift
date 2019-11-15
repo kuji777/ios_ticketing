@@ -13,6 +13,11 @@ struct TaskEditView: View {
         @State private var description: String = ""
         @State private var location: String = ""
         @State private var selectedType = 0
+        @State private var datas: String = ""
+        private let apiKey: String = "afb9c52b2dfa85e1a3acbeda56425a6d"
+    
+        let session = URLSession.shared
+//        @State
         
         var types = ["Material", "Software", "Other"]
         
@@ -60,7 +65,39 @@ struct TaskEditView: View {
                 
                 HStack(){
                     Button(action: {
-                        //do none
+                        //Send HTTP request for creation of Tasks
+                        self.datas = self.name + "; " + self.description + "; " + self.location + "; " + self.types[self.selectedType]
+                        
+                        var request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/76341?api_key=" + self.apiKey)!)
+                        
+                        request.httpMethod = "POST"
+                        
+                        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                        
+                        let json = [
+                            "name": self.name,
+                            "description": self.description,
+                            "location": self.location,
+                            "type": self.types[self.selectedType]
+                        ]
+                        
+                        let jsonData = try! JSONSerialization.data(withJSONObject: json, options: [])
+                        
+                        let task = self.session.uploadTask(with: request, from: jsonData) { data, response, error in
+                            // Do something
+                            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                                print(dataString)
+                            }
+                            
+                            if let httpResponse = response as? HTTPURLResponse {
+                                print(httpResponse.statusCode)
+                            }
+                        }
+                        
+                        
+
+                        task.resume()
+                        
                     }) {
                         Text("Submit")
                             .foregroundColor(.white)
@@ -69,6 +106,8 @@ struct TaskEditView: View {
                             .cornerRadius(10)
                     }
                 }
+                
+                Text(datas)
             }.padding()
             .navigationBarTitle("Edit")
         }

@@ -64,7 +64,6 @@
 		EC8C642E23604B830006420C /* TicketManager */ = {
 			isa = PBXGroup;
 			children = (
-				EC7AC1C5237C407A0063D7CB /* TaskDetailsView.swift */,
 				EC8C644523607EEA0006420C /* DataObjects */,
 				EC8C642F23604B830006420C /* AppDelegate.swift */,
 				EC8C643523604B900006420C /* Assets.xcassets */,
@@ -75,6 +74,8 @@
 				EC8C6443236057D80006420C /* TaskListView.swift */,
 				EC602AA4237C5745007E7E01 /* SpecificTaskView.swift */,
 				ECE6658F237C03BE00C1F697 /* TaskEditView.swift */,
+				EC8C6443236057D80006420C /* TaskListView.swift */,
+				EC7AC1C5237C407A0063D7CB /* TaskDetailsView.swift */,
 				EC8C6446236081910006420C /* LoginView.swift */,
 			);
 			path = TicketManager;
