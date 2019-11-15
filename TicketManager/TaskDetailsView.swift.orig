@@ -10,7 +10,10 @@ import SwiftUI
 
 struct TaskDetailsView: View {
     
+<<<<<<< HEAD
+=======
     @State var task: Task
+>>>>>>> 78d101db0ae5a3b5c64fe0dba46b95a7294bb522
     
     var types = ["Material", "Software", "Other"]
     let image = Image("Task")
@@ -38,12 +41,13 @@ struct TaskDetailsView: View {
                                 .cornerRadius(10)
                         }
                     }*/
-                }
+            
                 
                 VStack(alignment: .leading) {
                     
                     Text("Task name : \(task.name)")
                     .font(.headline)
+                    Tex
                 
                     Text("Task description : \(task.description)")
                     .font(.headline)
@@ -53,17 +57,9 @@ struct TaskDetailsView: View {
                     
                 }
             }
-                      
+            
     
         }
         
     }
 
-/*struct Task {
-    var taskId: String = ""
-    var name: String = ""
-    var description: String = ""
-    var location: String = ""
-    var status: String = ""
-    var selectedUserType = 0
-}*/
