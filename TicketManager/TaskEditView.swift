@@ -95,9 +95,9 @@ struct TaskEditView: View {
 //                                if httpResponse.statusCode == 200{
                                     let newTask = Task(taskId: "", name: self.name, description: self.description, location: self.location, status: "opened", selectedUserType: self.types[self.selectedType])
                                 
-                                    DispatchQueue.main.async{
+//                                    DispatchQueue.main.async{
                                         self.tasklists.openTaskList.append(newTask)
-                                    }
+//                                    }
                                     
                                 
                                     self.datas = "New task name: " + newTask.name + "; description: " + newTask.description + "; location: " + newTask.location + "; type: " + newTask.selectedUserType + "; status: " + newTask.status

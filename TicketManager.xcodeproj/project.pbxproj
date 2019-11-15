@@ -18,6 +18,8 @@
 		EC8C643C23604B900006420C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8C643A23604B900006420C /* LaunchScreen.storyboard */; };
 		EC8C6444236057D80006420C /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C6443236057D80006420C /* TaskListView.swift */; };
 		EC8C6447236081910006420C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C6446236081910006420C /* LoginView.swift */; };
+		ECBE163C237EFEE0004EF646 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE163B237EFEE0004EF646 /* Message.swift */; };
+		ECBE163E237EFF0D004EF646 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE163D237EFF0D004EF646 /* ChatController.swift */; };
 		ECE66590237C03BE00C1F697 /* TaskEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE6658F237C03BE00C1F697 /* TaskEditView.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		EC8C643D23604B900006420C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC8C6443236057D80006420C /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		EC8C6446236081910006420C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		ECBE163B237EFEE0004EF646 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		ECBE163D237EFF0D004EF646 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		ECE6658F237C03BE00C1F697 /* TaskEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +84,8 @@
 				EC8C6443236057D80006420C /* TaskListView.swift */,
 				EC7AC1C5237C407A0063D7CB /* TaskDetailsView.swift */,
 				EC8C6446236081910006420C /* LoginView.swift */,
+				ECBE163B237EFEE0004EF646 /* Message.swift */,
+				ECBE163D237EFF0D004EF646 /* ChatController.swift */,
 			);
 			path = TicketManager;
 			sourceTree = "<group>";
@@ -172,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECBE163E237EFF0D004EF646 /* ChatController.swift in Sources */,
 				EC601D66237EDCFC00289F45 /* Task.swift in Sources */,
 				EC602AA5237C5745007E7E01 /* SpecificTaskView.swift in Sources */,
 				EC8C643023604B830006420C /* AppDelegate.swift in Sources */,
@@ -179,6 +186,7 @@
 				EC8C643223604B830006420C /* SceneDelegate.swift in Sources */,
 				EC7AC1C6237C407A0063D7CB /* TaskDetailsView.swift in Sources */,
 				EC8C6447236081910006420C /* LoginView.swift in Sources */,
+				ECBE163C237EFEE0004EF646 /* Message.swift in Sources */,
 				EC8C6444236057D80006420C /* TaskListView.swift in Sources */,
 				ECE66590237C03BE00C1F697 /* TaskEditView.swift in Sources */,
 			);

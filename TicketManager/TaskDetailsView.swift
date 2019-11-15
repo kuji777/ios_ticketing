@@ -27,6 +27,17 @@ struct TaskDetailsView: View {
             
     
             VStack() {
+                
+                NavigationLink(destination: Chat()) {
+                     
+                        HStack{
+                            Text("chat").foregroundColor(.white)
+                        }
+                    .padding(10)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+                }
+                
                 Text("Task Details").offset(.init(width: 0, height: -180))
                     .font(.title)
                 /*image
