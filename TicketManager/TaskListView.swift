@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TaskListView: View {
 
+    @EnvironmentObject var tasklists : TaskLists
     @State var openTaskList = [
         Task(  taskId: "1", name: "charge fail", description: "the charge failed", location: "open office", status: "open", selectedUserType: "0"),
     Task(  taskId: "2", name: "change directory failed", description: "the charge failed", location: "open office", status: "pending", selectedUserType: "0"),
@@ -28,47 +29,48 @@ struct TaskListView: View {
     @State private var SelectedTabIndex = 0
     
     var body: some View {
-            VStack{
-                
-                HStack{
-                    Text("Welcome to Your task Manager")
-                    
-                    NavigationLink(destination: TaskEditView(), tag: 1, selection: $selection) {
-                        Button(action: {
-                            self.selection = 1
-                        }) {
-                            HStack{
-                                Image("baseline_add_circle_black_48dp").resizable().frame(width:25.0, height: 25.0).colorMultiply(Color.blue)
-                                Text("Add task").foregroundColor(Color.blue)
+        NavigationView{
+                VStack{
+                    HStack{
+                        Text("Welcome to Your task Manager")
+                        
+                        NavigationLink(destination: TaskEditView(), tag: 1, selection: $selection) {
+                            Button(action: {
+                                self.selection = 1
+                            }) {
+                                HStack{
+                                    Image("baseline_add_circle_black_48dp").resizable().frame(width:25.0, height: 25.0).colorMultiply(Color.blue)
+                                    Text("Add task").foregroundColor(Color.blue)
+                                }
+                                .background(Color.white)
                             }
-                            .background(Color.white)
+                            .foregroundColor(.white)
+                            .padding(10)
+                            .background(Color.blue)
+                            .cornerRadius(10)
                         }
-                        .foregroundColor(.white)
-                        .padding(10)
-                        .background(Color.blue)
-                        .cornerRadius(10)
                     }
-                }
 
-                VStack(alignment: .leading) {
-                    Picker(selection: $SelectedTabIndex, label: Text("tab")) {
-                        Text("opened").tag(0)
-                        Text("pending").tag(1)
-                        Text("closed").tag(2)
+                    VStack(alignment: .leading) {
+                        Picker(selection: $SelectedTabIndex, label: Text("tab")) {
+                            Text("opened").tag(0)
+                            Text("pending").tag(1)
+                            Text("closed").tag(2)
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
                     }
-                    .pickerStyle(SegmentedPickerStyle())
-                }
-                SpecificTaskView(tasks: selectedTasks)
-    
-                /*List(taskList.items, action: taskList.selectItem){
-                    item in
-                    Image(item.image)
-                    VStack(alignment: .leading){
-                        Text(item.title)
-                        Text(item.subtitle).color(.gray)
-                    }
-                }*/
-        }.navigationBarTitle("List")
+                    SpecificTaskView(tasks: selectedTasks)
+        
+                    /*List(taskList.items, action: taskList.selectItem){
+                        item in
+                        Image(item.image)
+                        VStack(alignment: .leading){
+                            Text(item.title)
+                            Text(item.subtitle).color(.gray)
+                        }
+                    }*/
+            }.navigationBarTitle("List")
+        }
     }
     
     var selectedTasks: Binding<[Task]> {
