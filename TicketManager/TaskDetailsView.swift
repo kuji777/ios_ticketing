@@ -24,7 +24,8 @@ struct TaskDetailsView: View {
     
     var body: some View {
            
-        
+            
+    
             VStack() {
                 Text("Task Details").offset(.init(width: 0, height: -180))
                     .font(.title)
@@ -40,21 +41,9 @@ struct TaskDetailsView: View {
                             
                 VStack(alignment: .leading) {
                     
-/*
-                   switch (task.status){
-                   case ("ON GOING"):
-                       selectedStatus = 1
-                   case ("PENDING"):
-                       selectedStatus = 2
-                   case ("DONE"):
-                       selectedStatus = 3
-                   default:
-                       selectedStatus = 0
-                   }*/
-                    
-                    Picker(selection: $selectedStatus, label: Text("Status").font(.headline)) {
+                    Picker(selection: $task.status, label: Text("Status").font(.headline)) {
                        ForEach(0 ..< status.count) {
-                          Text(self.status[$0])
+                        Text(self.status[$0]).tag(self.status[$0])
                        }
                     }
                     
@@ -128,5 +117,19 @@ struct TaskDetailsView: View {
                         Text(datas)
                     }.padding()
                 }
-            }
+    
+    func getStatus() -> Int{
+    
+        switch (task.status){
+                          case ("ON GOING"):
+                           return 1
+                          case ("PENDING"):
+                           return  2
+                          case ("DONE"):
+                           return  3
+                          default:
+                           return  0
+                          }
+    }
 
+ }
