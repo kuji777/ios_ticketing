@@ -10,11 +10,6 @@ import SwiftUI
 
 struct TaskDetailsView: View {
     
-    @State private var name: String = ""
-    @State private var description: String = ""
-    @State private var location: String = ""
-    @State private var status: String = ""
-    @State private var selectedUserType = 0
     
     @State var task: Task = Task(taskId: "taskId", name : "NAME", description : "DESCRIPTION", location : "LOCATION", status : "STATUS", selectedUserType : "CLIENT")
 
@@ -22,20 +17,19 @@ struct TaskDetailsView: View {
     let image = Image("Task")
     
     var body: some View {
-            
-        
         
             VStack() {
-                HStack(){
-                    Text("Task Details").offset(.init(width: 0, height: 0))
-                        .font(.title)
-                    image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 50, height: 50, alignment: .topLeading)
-                    .clipped()
-                    .listRowInsets(EdgeInsets())
-                    /*Button(action: {
+                Text("Task Details").offset(.init(width: 0, height: -180))
+                    .font(.title)
+                /*image
+                .resizable()
+                .scaledToFill()
+                .frame(width: 50, height: 50, alignment: .topLeading)
+                .clipped()
+                .listRowInsets(EdgeInsets())
+                
+                    
+                    Button(action: {
                             //change status value
                         }) {
                             Text(task.status)
@@ -45,12 +39,13 @@ struct TaskDetailsView: View {
                                 .cornerRadius(10)
                         }
                     }*/
-                }
+            
                 
                 VStack(alignment: .leading) {
                     
                     Text("Task name :")
                     .font(.headline)
+                    Tex
                 
                     Text("Task description :")
                     .font(.headline)
@@ -60,7 +55,7 @@ struct TaskDetailsView: View {
                     
                 }
             }
-                      
+            
     
         }
         
